@@ -46,7 +46,7 @@ async def send_package(data: PackageSend):
         "sent_at": send_time,
         "is_delivered": False,
         "delivered_at": None,
-        "current_location_history": [data.delivery_location]  # inicijalna lokacija
+        "current_location_history": [data.delivery_location]  
     }
 
     table.put_item(Item=item)
