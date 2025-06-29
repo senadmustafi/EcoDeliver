@@ -1,0 +1,27 @@
+services:
+  auth:
+    build:
+      context: ./auth-service
+    env_file:
+      - .env
+
+  delivery:
+    build:
+      context: ./delivery-service
+    env_file:
+      - .env
+
+  driver-tracking:
+    build:
+      context: driver-tracking-service
+    env_file:
+      - .env
+
+  proxy:
+    image: nginx:1.29-alpine
+
+    volumes:
+    - ./config:/etc/nginx/conf.d:ro
+
+    ports:
+      - 12345:80
